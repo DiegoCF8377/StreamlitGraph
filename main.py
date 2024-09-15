@@ -97,6 +97,7 @@ option = {
             "label": {"position": "right"},
             "draggable": False,
             "force": {"repulsion": 100},
+            "itemStyle": {"color": "#D33653"}, 
         }
     ],
 }
