@@ -95,7 +95,7 @@ option = {
             "categories": graph["categories"],
             "roam": False,
             "label": {"position": "right"},
-            "draggable": True,
+            "draggable": False,
             "force": {"repulsion": 100}
         }
     ],
