@@ -4,7 +4,7 @@ import numpy as np
 import json
 #REs
 import requests
-
+"""
 # Realiza la solicitud GET a la API
 x = requests.get('http://localhost:3000/api/addDataStream')
 
@@ -45,6 +45,7 @@ st_echarts(option, height="500px")
 #st.title("Gráfico de Área Apilada")
 
 
+"""
 
 # Definición de las opciones del gráfico
 options = {
