@@ -27,10 +27,10 @@ graph_data = json.loads(x.text)
 nodes = []
 links = []
 categories = [
-    {"name": "category0"},
-    {"name": "category1"},
-    {"name": "category2"},
-    {"name": "category3"}
+    {"name": "tristeza"},
+    {"name": "felicidad"},
+    {"name": "tranquilidad"},
+    {"name": "enojo"}
 ]
 
 # Función para determinar la categoría basada en el cuadrante
@@ -171,8 +171,9 @@ options = {
 # Renderizar el gráfico en Streamlit
 st_echarts(options=options, height="500px")
 # Cambiar el color de fondo según el tema
+st.title("Energía emocional")
 if theme == "dark":
-    st.title("Tema Oscuro")
+    
     st.write(
         """
         <style>
@@ -189,7 +190,6 @@ if theme == "dark":
         unsafe_allow_html=True
     )
 else:
-    st.title("Tema Claro")
     st.write(
         """
         <style>
