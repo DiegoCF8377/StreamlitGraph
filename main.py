@@ -49,7 +49,7 @@ for index, item in enumerate(graph_data):
     category = determine_category(item['x'], item['y'])
     node = {
         "id": item['_id'],
-        "name": item['title'],
+        "name": item['date'],
         "x": item['x'],
         "y": item['y'],
         "category": category
