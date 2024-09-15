@@ -108,15 +108,23 @@ rojo = []
 amarillo = []
 verde = []
 azul = []
+dates = []
 for g in graph["nodes"]:
+    dates.append(g["name"])
     if g["x"] > 0:
         rojo.append(g["x"])
+        azul.append(0)
     elif g["x"] < 0:
         azul.append(g["x"])
+        rojo.append(0)
     if g["y"] > 0:
         verde.append(g["y"])
+        amarillo.append(0)
+        
     elif g["y"] < 0:
         amarillo.append(g["y"])
+        verde.append(0)
+        
 print(rojo)
 # Definición de las opciones del gráfico
 options = {
@@ -126,7 +134,7 @@ options = {
     "xAxis": {"type": "value"},
     "yAxis": {
         "type": "category",
-        "data": ["13/09", "14/09", "15/09", "16/09", "17/09", "18/09", "19/09"],
+        "data": dates,
     },
     "series": [
         {
@@ -136,7 +144,7 @@ options = {
             "label": {"show": True},
             "emphasis": {"focus": "series"},
             "data": rojo,
-            "itemStyle": {"color": "red"},  # Color de las barras rojas
+            "itemStyle": {"color": "red"}, 
         },
         {
             "name": "amarillo",
@@ -145,7 +153,7 @@ options = {
             "label": {"show": True},
             "emphasis": {"focus": "series"},
             "data": amarillo,
-            "itemStyle": {"color": "yellow"},  # Color de las barras amarillas
+            "itemStyle": {"color": "yellow"},  
         },
         {
             "name": "verde",
@@ -154,7 +162,7 @@ options = {
             "label": {"show": True},
             "emphasis": {"focus": "series"},
             "data": verde,
-            "itemStyle": {"color": "green"},  # Color de las barras verdes
+            "itemStyle": {"color": "green"},  
         },
         {
             "name": "azul",
@@ -163,12 +171,11 @@ options = {
             "label": {"show": True},
             "emphasis": {"focus": "series"},
             "data": azul,
-            "itemStyle": {"color": "blue"},  # Color de las barras azules
+            "itemStyle": {"color": "blue"}, 
         },
     ],
 }
 
-# Renderizar el gráfico en Streamlit
 st_echarts(options=options, height="500px")
 # Cambiar el color de fondo según el tema
 st.title("Energía emocional")
