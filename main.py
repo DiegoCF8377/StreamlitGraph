@@ -10,7 +10,7 @@ import streamlit as st
 
 # Check for theme parameter in URL
 query_params = st.experimental_get_query_params()
-theme = query_params.get("theme", ["light"])[0]  # Default to light
+theme = query_params.get("theme", ["dark"])[0]  # Default to light
 
 
 
@@ -110,12 +110,18 @@ options = {
 
 # Renderizar el gráfico en Streamlit
 st_echarts(options=options, height="500px")
+# Cambiar el color de fondo según el tema
 if theme == "dark":
+    st.title("Tema Oscuro")
     st.write(
         """
         <style>
-        body {
-            background-color: #0E1117;
+        /* Cambiar el color de fondo */
+        div[data-testid="stAppViewContainer"] {
+            background-color: #c2c2c2;
+        }
+        /* Cambiar el color del texto */
+        div[data-testid="stMarkdownContainer"] {
             color: #E1E1E1;
         }
         </style>
@@ -123,12 +129,13 @@ if theme == "dark":
         unsafe_allow_html=True
     )
 else:
+    st.title("Tema Claro")
     st.write(
         """
         <style>
-        body {
-            background-color: #FFFFFF;
-            color: #000000;
+        /* Cambiar el color de fondo */
+        div[data-testid="stAppViewContainer"] {
+            background-color: #ffffff;
         }
         </style>
         """,
