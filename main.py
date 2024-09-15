@@ -96,8 +96,7 @@ option = {
             "roam": False,
             "label": {"position": "right"},
             "draggable": False,
-            "force": {"repulsion": 100},
-            "itemStyle": {"color": "#D33653"}, 
+            "force": {"repulsion": 100}
         }
     ],
 }
