@@ -12,30 +12,6 @@ import streamlit as st
 query_params = st.experimental_get_query_params()
 theme = query_params.get("theme", ["light"])[0]  # Default to light
 
-if theme == "dark":
-    st.write(
-        """
-        <style>
-        body {
-            background-color: #0E1117;
-            color: #E1E1E1;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-else:
-    st.write(
-        """
-        <style>
-        body {
-            background-color: #FFFFFF;
-            color: #000000;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
 
 
 
@@ -134,3 +110,27 @@ options = {
 
 # Renderizar el gráfico en Streamlit
 st_echarts(options=options, height="500px")
+if theme == "dark":
+    st.write(
+        """
+        <style>
+        body {
+            background-color: #0E1117;
+            color: #E1E1E1;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+else:
+    st.write(
+        """
+        <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
