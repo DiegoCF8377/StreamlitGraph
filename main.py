@@ -72,7 +72,7 @@ graph = {
 }
 
 # Muestra el resultado convertido
-print(json.dumps(graph, indent=4))
+#print(json.dumps(graph, indent=4))
 
 for idx, _ in enumerate(graph["nodes"]):
     graph["nodes"][idx]["symbolSize"] = 15
@@ -104,7 +104,20 @@ option = {
 st_echarts(option, height="500px")
 #st.title("Gráfico de Área Apilada")
 
-
+rojo = []
+amarillo = []
+verde = []
+azul = []
+for g in graph["nodes"]:
+    if g["x"] > 0:
+        rojo.append(g["x"])
+    elif g["x"] < 0:
+        azul.append(g["x"])
+    if g["y"] > 0:
+        verde.append(g["y"])
+    elif g["y"] < 0:
+        amarillo.append(g["y"])
+print(rojo)
 # Definición de las opciones del gráfico
 options = {
     "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
@@ -122,7 +135,7 @@ options = {
             "stack": "emociones",
             "label": {"show": True},
             "emphasis": {"focus": "series"},
-            "data": np.random.randint(0, 10, 7).tolist(),
+            "data": rojo,
             "itemStyle": {"color": "red"},  # Color de las barras rojas
         },
         {
@@ -131,7 +144,7 @@ options = {
             "stack": "emociones",
             "label": {"show": True},
             "emphasis": {"focus": "series"},
-            "data": np.random.randint(0, 10, 7).tolist(),
+            "data": amarillo,
             "itemStyle": {"color": "yellow"},  # Color de las barras amarillas
         },
         {
@@ -140,7 +153,7 @@ options = {
             "stack": "emociones",
             "label": {"show": True},
             "emphasis": {"focus": "series"},
-            "data": np.random.randint(0, 10, 7).tolist(),
+            "data": verde,
             "itemStyle": {"color": "green"},  # Color de las barras verdes
         },
         {
@@ -149,7 +162,7 @@ options = {
             "stack": "emociones",
             "label": {"show": True},
             "emphasis": {"focus": "series"},
-            "data": np.random.randint(0, 10, 7).tolist(),
+            "data": azul,
             "itemStyle": {"color": "blue"},  # Color de las barras azules
         },
     ],
