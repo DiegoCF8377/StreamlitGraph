@@ -126,6 +126,9 @@ for g in graph["nodes"]:
         verde.append(0)
         
 print(rojo)
+
+
+
 # Definición de las opciones del gráfico
 options = {
     "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
@@ -144,7 +147,7 @@ options = {
             "label": {"show": True},
             "emphasis": {"focus": "series"},
             "data": rojo,
-            "itemStyle": {"color": "#111111"}, 
+            "itemStyle": {"color": "red"}, 
         },
         {
             "name": "amarillo",
@@ -186,7 +189,7 @@ if theme == "dark":
         <style>
         /* Cambiar el color de fondo */
         div[data-testid="stAppViewContainer"] {
-            background-color: #c2c2c2;
+            background-color: #212529;
         }
         /* Cambiar el color del texto */
         div[data-testid="stMarkdownContainer"] {
