@@ -28,8 +28,8 @@ nodes = []
 links = []
 categories = [
     {"name": "tristeza"},
-    {"name": "felicidad"},
     {"name": "tranquilidad"},
+    {"name": "felicidad"},
     {"name": "enojo"}
 ]
 
@@ -144,7 +144,7 @@ options = {
             "label": {"show": True},
             "emphasis": {"focus": "series"},
             "data": rojo,
-            "itemStyle": {"color": "red"}, 
+            "itemStyle": {"color": "#111111"}, 
         },
         {
             "name": "amarillo",
