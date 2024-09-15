@@ -147,7 +147,7 @@ options = {
             "label": {"show": True},
             "emphasis": {"focus": "series"},
             "data": rojo,
-            "itemStyle": {"color": "red"}, 
+            "itemStyle": {"color": "#A4243B"}, 
         },
         {
             "name": "amarillo",
@@ -156,7 +156,7 @@ options = {
             "label": {"show": True},
             "emphasis": {"focus": "series"},
             "data": amarillo,
-            "itemStyle": {"color": "yellow"},  
+            "itemStyle": {"color": "#D8973C"},  
         },
         {
             "name": "verde",
@@ -165,7 +165,7 @@ options = {
             "label": {"show": True},
             "emphasis": {"focus": "series"},
             "data": verde,
-            "itemStyle": {"color": "green"},  
+            "itemStyle": {"color": "#A5BE00"},  
         },
         {
             "name": "azul",
@@ -174,7 +174,7 @@ options = {
             "label": {"show": True},
             "emphasis": {"focus": "series"},
             "data": azul,
-            "itemStyle": {"color": "blue"}, 
+            "itemStyle": {"color": "#086A75"}, 
         },
     ],
 }
