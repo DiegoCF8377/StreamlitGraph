@@ -3,9 +3,16 @@ from streamlit_echarts import st_echarts
 import numpy as np
 import json
 #REs
+import requests
 
-with open("./data/dataGraph.json", "r") as f:
-    graph = json.loads(f.read())
+# Realiza la solicitud GET a la API
+x = requests.get('http://localhost:3000/api/addDataStream')
+
+# Muestra el contenido de la respuesta de la API
+print(x.text)
+
+# Asigna el contenido de la respuesta JSON a una variable
+graph = json.loads(x.text)
 
 for idx, _ in enumerate(graph["nodes"]):
     graph["nodes"][idx]["symbolSize"] = 15
