@@ -10,20 +10,69 @@ import streamlit as st
 
 # Check for theme parameter in URL
 query_params = st.experimental_get_query_params()
-theme = query_params.get("theme", ["dark"])[0]  # Default to light
+theme = query_params.get("theme", ["light"])[0]  # Default to light
 
 
 
 
-"""
-# Realiza la solicitud GET a la API
-x = requests.get('http://localhost:3000/api/addDataStream')
+x = requests.get('https://hackmty24.vercel.app/api/getPlotData')
 
 # Muestra el contenido de la respuesta de la API
 print(x.text)
 
 # Asigna el contenido de la respuesta JSON a una variable
-graph = json.loads(x.text)
+graph_data = json.loads(x.text)
+
+# Inicializa las listas para nodos y enlaces
+nodes = []
+links = []
+categories = [
+    {"name": "category0"},
+    {"name": "category1"},
+    {"name": "category2"},
+    {"name": "category3"}
+]
+
+# Función para determinar la categoría basada en el cuadrante
+def determine_category(x, y):
+    if x >= 0 and y >= 0:
+        return 0  # Primer cuadrante
+    elif x >= 0 and y < 0:
+        return 1  # Cuarto cuadrante
+    elif x < 0 and y < 0:
+        return 2  # Tercer cuadrante
+    elif x < 0 and y >= 0:
+        return 3  # Segundo cuadrante
+
+# Recorre los datos para crear los nodos
+for index, item in enumerate(graph_data):
+    category = determine_category(item['x'], item['y'])
+    node = {
+        "id": item['_id'],
+        "name": item['title'],
+        "x": item['x'],
+        "y": item['y'],
+        "category": category
+    }
+    nodes.append(node)
+
+    # Crea enlaces secuenciales
+    if index > 0:
+        link = {
+            "source": str(index - 1),
+            "target": str(index)
+        }
+        links.append(link)
+
+# Crea el diccionario final con nodos, enlaces y categorías
+graph = {
+    "nodes": nodes,
+    "links": links,
+    "categories": categories
+}
+
+# Muestra el resultado convertido
+print(json.dumps(graph, indent=4))
 
 for idx, _ in enumerate(graph["nodes"]):
     graph["nodes"][idx]["symbolSize"] = 15
@@ -39,7 +88,6 @@ option = {
     "legend": [{"data": [a["name"] for a in graph["categories"]]}],
     "series": [
         {
-            "name": "Les Miserables",
             "type": "graph",
             "layout": "none",
             "data": graph["nodes"],
@@ -52,11 +100,10 @@ option = {
         }
     ],
 }
+
 st_echarts(option, height="500px")
 #st.title("Gráfico de Área Apilada")
 
-
-"""
 
 # Definición de las opciones del gráfico
 options = {
@@ -141,3 +188,4 @@ else:
         """,
         unsafe_allow_html=True
     )
+    
