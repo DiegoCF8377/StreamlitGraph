@@ -147,7 +147,7 @@ options = {
             "label": {"show": True},
             "emphasis": {"focus": "series"},
             "data": rojo,
-            "itemStyle": {"color": "#A4243B"}, 
+            "itemStyle": {"color": "#D33653"}, 
         },
         {
             "name": "amarillo",
@@ -156,7 +156,7 @@ options = {
             "label": {"show": True},
             "emphasis": {"focus": "series"},
             "data": amarillo,
-            "itemStyle": {"color": "#D8973C"},  
+            "itemStyle": {"color": "#DDAD2A"},  
         },
         {
             "name": "verde",
