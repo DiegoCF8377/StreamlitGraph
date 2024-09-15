@@ -4,6 +4,41 @@ import numpy as np
 import json
 #REs
 import requests
+import streamlit as st
+
+import streamlit as st
+
+# Check for theme parameter in URL
+query_params = st.experimental_get_query_params()
+theme = query_params.get("theme", ["light"])[0]  # Default to light
+
+if theme == "dark":
+    st.write(
+        """
+        <style>
+        body {
+            background-color: #0E1117;
+            color: #E1E1E1;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+else:
+    st.write(
+        """
+        <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+
 """
 # Realiza la solicitud GET a la API
 x = requests.get('http://localhost:3000/api/addDataStream')
