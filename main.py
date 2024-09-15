@@ -75,7 +75,7 @@ graph = {
 #print(json.dumps(graph, indent=4))
 
 for idx, _ in enumerate(graph["nodes"]):
-    graph["nodes"][idx]["symbolSize"] = 15
+    graph["nodes"][idx]["symbolSize"] = 30
 
 option = {
     "title": {
@@ -193,7 +193,7 @@ if theme == "dark":
         }
         /* Cambiar el color del texto */
         div[data-testid="stMarkdownContainer"] {
-            color: #E1E1E1;
+            color: #9BA3AB;
         }
         </style>
         """,
